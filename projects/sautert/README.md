@@ -1,1 +1,1 @@
-Thad Sauter sautert
+This is my assignment-1 submission!
