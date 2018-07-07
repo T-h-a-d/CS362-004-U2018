@@ -12,4 +12,14 @@ int getCost(int cardNumber);
 int cardEffect(int card, int choice1, int choice2, int choice3, 
 	       struct gameState *state, int handPos, int *bonus);
 
+void adventurerEffect(int drawntreasure, struct gameState *state, int currentPlayer, int z, int* temphand);
+
+void smithyEffect(struct gameState *state, int currentPlayer, int handPos);
+
+void councilRoomEffect(struct gameState *state, int currentPlayer, int handPos);
+
+void villageEffect(struct gameState *state, int currentPlayer, int handPos);
+
+void greatHallEffect(struct gameState *state, int currentPlayer, int handPos);
+
 #endif
