@@ -20,43 +20,78 @@ int main(int argc, char **argv)
 
     //Test for card in game
     state->numBuys = 1;
-    printf("Card in Game...");
-    if (buyCard(smithy, state) == -1)
-        printf("Buy Failed\n");
+    printf("Buy Card in Game...\n");
+    printf("Expected: Buy Passed\n");
+    if(buyCard(smithy, state) == -1)
+    {
+        printf("Actual: Buy Failed\n");
+        printf("** Test Failed ** \n\n");
+    }
     else
-        printf("Buy Passed\n");
+    {
+        printf("Actual: Buy Passed\n");
+        printf("** Test Passed ** \n\n");
+    }
 
     //Test for card not in game
     state->numBuys = 1;
-    printf("Card Not in Game...");
+    printf("Buy Card Not in Game...\n");
+    printf("Expected: Buy Failed\n");
     if(buyCard(tribute, state) == -1)
-        printf("Buy Failed\n");   
+    {
+        printf("Actual: Buy Failed\n");
+        printf("** Test Passed ** \n\n");
+    }
     else
-        printf("Buy Passed\n");   
+    {
+        printf("Actual: Buy Passed\n");
+        printf("** Test Failed ** \n\n");
+    }
 
     //Test for none of that type of card left
     state->numBuys = 1;
     state->supplyCount[adventurer] = 0;
-    printf("None of that Card Left...");
+    printf("None of that Card Left...\n");
+    printf("Expected: Buy Failed\n");
     if (buyCard(adventurer, state) == -1)
-        printf("Buy Failed\n");
+    {
+        printf("Actual: Buy Failed\n");
+        printf("** Test Passed ** \n\n");
+    }
     else
-        printf("Buy Passed\n");
+    {
+        printf("Actual: Buy Passed\n");
+        printf("** Test Failed ** \n\n");
+    }
 
     //Test for no buys left this turn
     state->numBuys = 0;
-    printf("No Buys Left this Turn...");
+    printf("No Buys Left this Turn...\n");
+    printf("Expected: Buy Failed\n");
     if (buyCard(adventurer, state) == -1)
-        printf("Buy Failed\n");
+    {
+        printf("Actual: Buy Failed\n");
+        printf("** Test Passed ** \n\n");
+    }
     else
-        printf("Buy Passed\n");
+    {
+        printf("Actual: Buy Passed\n");
+        printf("** Test Failed ** \n\n");
+    }
 
     //Test for not enough money
     state->coins = 0;
     state->numBuys = 1;
-    printf("Not Enough Money...");
+    printf("Not Enough Money...\n");
+    printf("Expected: Buy Failed\n");
     if (buyCard(adventurer, state) == -1)
-        printf("Buy Failed\n");
+    {
+        printf("Actual: Buy Failed\n");
+        printf("** Test Passed ** \n\n");
+    }
     else
-        printf("Buy Passed\n");
+    {
+        printf("Actual: Buy Passed\n");
+        printf("** Test Failed ** \n\n");
+    }
 }
