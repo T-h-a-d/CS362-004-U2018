@@ -9,22 +9,22 @@ int main(int argc, char **argv)
 {
     printf("----Unit Test 2: fullDeckCount----\n");
 
-    struct gameState *state = malloc(sizeof(struct gameState *));
+    struct gameState state;
     int *cards = kingdomCards(adventurer, smithy, council_room, feast, gardens, mine, remodel,
                               village, baron, great_hall);
 
-    initializeGame(2, cards, 100, state);
+    initializeGame(2, cards, 100, &state);
 
     //Check if added card is counted in deck
     printf("Check Added Card Counted in Deck...\n");
     printf("Expected: Smithy Deck Count at 1\n");
 
     //Make sure card is not yet in deck
-    assert(fullDeckCount(0, smithy, state) == 0);
+    assert(fullDeckCount(0, smithy, &state) == 0);
 
-    gainCard(smithy, state, 1, 0);
+    gainCard(smithy, &state, 1, 0);
 
-    int smithy_count = fullDeckCount(0, smithy, state);
+    int smithy_count = fullDeckCount(0, smithy, &state);
 
     if (smithy_count == 1)
     {
@@ -42,11 +42,11 @@ int main(int argc, char **argv)
     printf("Expected: Council Room Hand Count at 1\n");
 
     //Make sure card is not yet in hand
-    assert(fullDeckCount(0, council_room, state) == 0);
+    assert(fullDeckCount(0, council_room, &state) == 0);
 
-    gainCard(council_room, state, 2, 0);
+    gainCard(council_room, &state, 2, 0);
 
-    int council_room_count = fullDeckCount(0, council_room, state);
+    int council_room_count = fullDeckCount(0, council_room, &state);
 
     if (council_room_count == 1)
     {
@@ -64,11 +64,11 @@ int main(int argc, char **argv)
     printf("Expected: Adventurer Discard Pile Count at 1\n");
 
     //Make sure card is not yet in discard pile
-    assert(fullDeckCount(0, adventurer, state) == 0);
+    assert(fullDeckCount(0, adventurer, &state) == 0);
 
-    gainCard(adventurer, state, 3, 0);
+    gainCard(adventurer, &state, 3, 0);
 
-    int adventurer_count = fullDeckCount(0, adventurer, state);
+    int adventurer_count = fullDeckCount(0, adventurer, &state);
 
     if (adventurer_count == 1)
     {
