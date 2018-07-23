@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 
     initializeGame(2, cards, 1000, &state);
 
-    //Test if current player
+    //Test if current player drew 1 card and gained 2 actions
     printf("Player Draws 1 Card and Gains 2 Actions...\n");
     memcpy(&testState, &state, sizeof(struct gameState));
 
